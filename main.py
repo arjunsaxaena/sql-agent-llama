@@ -1,16 +1,5 @@
-from app.config.settings import DB_URL
-from app.db.sqltool import SQLTool
-
-
-def main():
-    db = SQLTool(DB_URL)
-
-    query = "SELECT 1 AS test;"
-    result = db.execute(query)
-
-    print("DB connection OK")
-    print(result)
+from app.agent.service import run_cli
 
 
 if __name__ == "__main__":
-    main()
+    run_cli()

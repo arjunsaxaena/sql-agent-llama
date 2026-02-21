@@ -1,7 +1,10 @@
 langchain
+langgraph
+langchain-ollama
 langchain-community
 langchain-experimental
 ollama
 sqlalchemy
 psycopg2-binary
 python-dotenv
+colorama
