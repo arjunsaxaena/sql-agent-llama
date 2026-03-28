@@ -249,6 +249,7 @@ def _db_answer_node(state: AgentState) -> AgentState:
     query = state["query"]
     _log_step("RUN", Fore.BLUE, "Starting SQL agent")
     schema_context = _get_db_schema_context()
+    _log_step("SCHEMA CONTEXT", Fore.CYAN, f"\n{schema_context}")
     last_seen_message_count = 0
     final_messages = []
 
@@ -262,6 +263,7 @@ def _db_answer_node(state: AgentState) -> AgentState:
             ]
         },
         stream_mode="values",
+        config={"recursion_limit": 30},
     ):
         messages = step.get("messages", [])
         last_seen_message_count = _stream_logs(messages, last_seen_message_count)
